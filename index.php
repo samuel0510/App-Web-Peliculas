@@ -1,12 +1,12 @@
 <?php
 	//require 'api.php';
-	$new = file_get_contents('https://api.themoviedb.org/3/movie/top_rated?api_key=5b812339ff5a7fd950dc41d20c6754c8&language=en-US&page=1');
+	$new = file_get_contents('https://api.themoviedb.org/3/movie/top_rated?api_key=5b812339ff5a7fd950dc41d20c6754c8&language=es-ES&page=1');
 	$new = json_decode($new,true)["results"];
 
-	$popular = file_get_contents('https://api.themoviedb.org/3/movie/popular?api_key=5b812339ff5a7fd950dc41d20c6754c8&language=en-US&page=1');
+	$popular = file_get_contents('https://api.themoviedb.org/3/movie/popular?api_key=5b812339ff5a7fd950dc41d20c6754c8&language=es-ES&page=1');
 	$popular = json_decode($popular,true)["results"];
 
-	$upcoming = file_get_contents('https://api.themoviedb.org/3/movie/upcoming?api_key=5b812339ff5a7fd950dc41d20c6754c8&language=en-US&page=1');
+	$upcoming = file_get_contents('https://api.themoviedb.org/3/movie/upcoming?api_key=5b812339ff5a7fd950dc41d20c6754c8&language=es-ES&page=1');
 	$upcoming = json_decode($upcoming,true)["results"];
 
 	//print_r($new[0]);
@@ -88,8 +88,9 @@
 
 				<div class="swiper-wrapper">
 					<?php
-
+					$i=0;
 					foreach ($upcoming as $movie ) {
+						if($i++ >= 3)break;
 						echo '<div class="swiper-slide">
 						<img src="https://image.tmdb.org/t/p/w780'.$movie['backdrop_path'].'">
 						<div class="caption">

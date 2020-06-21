@@ -1,4 +1,12 @@
-<!DOCTYPE html>
+<?php
+	//require 'api.php';
+	$movie = file_get_contents('https://api.themoviedb.org/3/movie/'.$_GET['id'].'?api_key=5b812339ff5a7fd950dc41d20c6754c8&language=es-ES');
+	$movie = json_decode($movie,true);
+	print_r($movie);
+	exit;
+
+?>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
 	<meta charset="utf-8">
